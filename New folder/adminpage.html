@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Page</title>
+    <style>
+        body {
+            background-color: #f2f2f2;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px;
+        }
+        .report {
+            display: none;
+            margin-top: 20px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            text-align: left;
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .graph {
+            margin-top: 20px;
+            text-align: center;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+    <script>
+        function toggleReport() {
+            var report = document.getElementById("report");
+            if (report.style.display === "none") {
+                report.style.display = "block";
+            } else {
+                report.style.display = "none";
+            }
+        }
+		   function toggleAllocate() {
+            var allocate = document.getElementById("allocate");
+            if (allocate.style.display === "none") {
+                allocate.style.display = "block";
+            } else {
+                allocate.style.display = "none";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>WASTE MANAGEMENT REPORTS</h1>
+        <button onclick="toggleReport()">Weekly Report</button>
+        <div id="report" class="report">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Waste Collected</th>
+                        <th>Waste Disposed</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>10/04/2023</td>
+                        <td>500 kg</td>
+                        <td>450 kg</td>
+                    </tr>
+                    <tr>
+                        <td>11/04/2023</td>
+                        <td>550 kg</td>
+                        <td>500 kg</td>
+                    </tr>
+                    <tr>
+                        <td>12/04/2023</td>
+                        <td>600 kg</td>
+                        <td>550 kg</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+		 <button onclick="toggleAllocate()">Allocate</button>
+		<div>
+		<table id="allocation-table">
+  <thead>
+    <tr>
+      <th>Employee Name</th>
+      <th>Area</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><form>
+      <td><input type="text" name="employee-name"></td>
+      <td><input type="text" name="area"></td>
+    </tr>
+	 <tr>
+      <td><input type="text" name="employee-name"></td>
+      <td><input type="text" name="area"></td>
+    </tr>
+	 <tr>
+      <td><input type="text" name="employee-name"></td>
+      <td><input type="text" name="area"></td>
+    </tr>
+	 <tr>
+      <td><input type="text" name="employee-name"></td>
+      <td><input type="text" name="area"></td>
+    </tr>
+	 <tr>
+      <td><input type="text" name="employee-name"></td>
+      <td><input type="text" name="area"></td>
+      <td><input type="submit" ></td></form>
+    </tr>
+  </tbody>
+</table></div>
+        <div class="graph">
+            <h2>Statistic Graph of the Work</h2>
+            <img src="https://via.placeholder.com/800x400.png?text=Statistic+Graph+of+the+Work" alt="Statistic Graph of the Work">
+        </div>
+    </div>
+</body>
+</html>

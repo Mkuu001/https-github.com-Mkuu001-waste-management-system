@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Weekly Report</title>
+</head>
+<body>
+  <h1>Weekly Report</h1>
+  <table>
+    <tr>
+      <th>Task</th>
+      <th>Status</th>
+      <th>Notes</th>
+    </tr>
+    <tr>
+      <td>Task 1</td>
+      <td>Completed</td>
+      <td>This task was completed on time and to spec.</td>
+    </tr>
+    <tr>
+      <td>Task 2</td>
+      <td>In Progress</td>
+      <td>This task is still in progress.</td>
+    </tr>
+    <tr>
+      <td>Task 3</td>
+      <td>Pending</td>
+      <td>This task is waiting on approval from a manager.</td>
+    </tr>
+  </table>
+  <button onclick="generateReport()">Generate Report</button>
+</body>
+</html>
+
+<script>
+function generateReport() {
+  var html = document.querySelector("table").innerHTML;
+  var filename = "weekly_report.html";
+  var file = new File(filename, html);
+  file.save();
+}
+</script>

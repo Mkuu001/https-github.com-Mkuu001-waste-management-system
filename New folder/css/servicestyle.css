@@ -1,0 +1,78 @@
+/* Reset default styles and apply a basic layout */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+}
+
+header {
+    background-color: #333;
+    padding: 20px;
+    color: #fff;
+}
+
+h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 10px 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+section {
+    padding: 50px;
+}
+
+h2 {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.service-card {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.service-card img {
+    max-width: 100%;
+    margin-bottom: 10px;
+}
+
+.reason-card {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.reason-card img {
+    max-width: 100%;
+    margin-bottom: 10px;
+}
+
+footer {
+    background-color: #333;
+    padding: 20px;
+    color: #fff;
+    text-align: center;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+}

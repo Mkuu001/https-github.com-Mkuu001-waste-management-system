@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login | Waste Collection Application</title>
+	<style>
+		body {
+			background-color: #f2f2f2;
+			font-family: Arial, sans-serif;
+		}
+		.container {
+			margin: 0 auto;
+			max-width: 600px;
+			padding: 20px;
+			text-align: center;
+		}
+		h1 {
+			color: #3d3d3d;
+			font-size: 36px;
+			margin-top: 50px;
+		}
+		form {
+			background-color: #fff;
+			border-radius: 10px;
+			box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+			margin-top: 20px;
+			padding: 40px;
+			text-align: left;
+		}
+		input[type=text], select {
+			width: 100%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			box-sizing: border-box;
+			border: 2px solid #ccc;
+			border-radius: 4px;
+			font-size: 16px;
+		}
+		input[type=submit] {
+			background-color: #4CAF50;
+			color: #fff;
+			border: none;
+			border-radius: 4px;
+			cursor: pointer;
+			font-size: 16px;
+			padding: 12px 20px;
+		}
+		input[type=submit]:hover {
+			background-color: #3e8e41;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Waste Collection Application</h1>
+		<form action="admin.php">
+			<label for="area">Select your area:</label>
+			<select id="area" name="area">
+				<option value="area1">MTTI</option>
+				<option value="area2">LAW COURTS</option>
+				<option value="area3">BLUESKY</option>
+				<option value="area4">JUA KALI</option>
+				<option value="area5">MAJENGO A</option>
+				<option value="area6">MAJENGO B</option>
+				<option value="area7">MAJENGO C</option>
+				<option value="area6">SAINA</option>
+
+			</select><br><br>
+<form action="payment.php" method="post">
+<input type="radio" name="payment_method" value="mpesa" checked> M-Pesa
+<input type="radio" name="payment_method" value="credit_card"> Credit Card
+<br>
+<div id="mpesa_details">
+<label for="mpesa_phone_number">M-Pesa Phone Number</label>
+<input type="text" name="mpesa_phone_number" id="mpesa_phone_number">
+</div>
+<div id="credit_card_details">
+<label for="credit_card_number">Credit Card Number</label>
+<input type="text" name="credit_card_number" id="credit_card_number">
+<label for="credit_card_expiration_date">Credit Card Expiration Date</label>
+<input type="text" name="credit_card_expiration_date" id="credit_card_expiration_date">
+<label for="credit_card_cvv">Credit Card CVV</label>
+<input type="text" name="credit_card_cvv" id="credit_card_cvv">
+</div>
+<input type="submit" value="Pay">
+</form>
+
+<script>
+function validatePayment() {
+  var paymentMethod = document.getElementById("payment_method").value;
+  var mpesaPhoneNumber = document.getElementById("mpesa_phone_number").value;
+  var creditCardNumber = document.getElementById("credit_card_number").value;
+  var creditCardExpirationDate = document.getElementById("credit_card_expiration_date").value;
+  var creditCardCVV = document.getElementById("credit_card_cvv").value;
+
+  if (paymentMethod == "mpesa") {
+    if (mpesaPhoneNumber == "") {
+      alert("Please enter your M-Pesa phone number.");
+      return false;
+    }
+  } else if (paymentMethod == "credit_card") {
+    if (creditCardNumber == "") {
+      alert("Please enter your credit card number.");
+      return false;
+    }
+    if (creditCardExpirationDate == "") {
+      alert("Please enter your credit card expiration date.");
+      return false;
+    }
+    if (creditCardCVV == "") {
+      alert("Please enter your credit card CVV.");
+      return false;
+    }
+  }
+
+  // Initiate the payment.
+  var paymentData = {
+    paymentMethod: paymentMethod,
+    mpesaPhoneNumber: mpesaPhoneNumber,
+    creditCardNumber: creditCardNumber,
+    creditCardExpirationDate: creditCardExpirationDate,
+    creditCardCVV: creditCardCVV
+  };
+
+  $.ajax({
+    url: "payment.php",
+    type: "POST",
+    data: paymentData,
+    success: function(response) {
+      if (response.success) {
+        alert("Payment successful!");
+      } else {
+        alert("Payment failed!");
+      }
+    },
+    error: function() {
+      alert("An error occurred while processing your payment.");
+    }
+  });
+
+  return false;
+}
+</script>
+</body>
+</html>

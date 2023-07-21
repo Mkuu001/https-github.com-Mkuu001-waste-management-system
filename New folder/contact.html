@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Contact Us</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f2f2f2;
+		}
+		h1 {
+			text-align: center;
+			font-size: 36px;
+			color: #333;
+			margin-top: 50px;
+		}
+		.container {
+			max-width: 800px;
+			margin: 0 auto;
+			padding: 50px;
+			background-color: #fff;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
+		form {
+			display: flex;
+			flex-direction: column;
+		}
+		label {
+			font-size: 18px;
+			font-weight: bold;
+			margin-bottom: 10px;
+		}
+		input[type="text"], input[type="email"], textarea {
+			background-color: #f2f2f2;
+			border: none;
+			padding: 10px;
+			margin-bottom: 20px;
+			border-radius: 5px;
+			font-size: 16px;
+			color: #333;
+			box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+		}
+		input[type="submit"] {
+			background-color: #333;
+			color: #fff;
+			border: none;
+			padding: 10px 20px;
+			cursor: pointer;
+			border-radius: 5px;
+			font-size: 18px;
+			transition: background-color 0.3s ease;
+		}
+		input[type="submit"]:hover {
+			background-color: #555;
+		}
+		.contact-info {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin-top: 50px;
+		}
+		.contact-info p {
+			font-size: 18px;
+			color: #333;
+			margin-bottom: 10px;
+		}
+		.contact-info a {
+			font-size: 18px;
+			color: #333;
+			text-decoration: none;
+			transition: color 0.3s ease;
+		}
+		.contact-info a:hover {
+			color: #555;
+		}
+	</style>
+</head>
+<body>
+	<h1>Contact Us</h1>
+	<div class="container">
+		<form>
+			<label for="name">Name</label>
+			<input type="text" id="name" name="name" required>
+
+			<label for="email">Email</label>
+			<input type="email" id="email" name="email" required>
+
+			<label for="message">Message</label>
+			<textarea id="message" name="message" rows="5" required></textarea>
+
+			<input type="submit" value="Send Message">
+		</form>
+		<div class="contact-info">
+			<p>Email: <a href="mailto:wastemanagement@gmail.com">wastemanagement@gmail.com</a></p>
+			<p>Phone: +254796923435</p>
+		</div>
+	</div>
+</body>
+</html>

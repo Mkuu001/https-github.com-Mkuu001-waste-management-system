@@ -1,0 +1,41 @@
+<html>
+<link rel="stylesheet" type="text/css" href="adminstyle.css">
+<script>
+function login()
+{
+const loginForm = document.querySelector('form');
+const loginButton = document.querySelector('#login-btn');
+
+loginButton.addEventListener('click', (e) => {
+  e.preventDefault();
+  const username = loginForm.querySelector('#username').value;
+  const password = loginForm.querySelector('#password').value;
+
+  // Send login credentials to server for verification
+  fetch('login.php', {
+    method: 'POST',
+    body: JSON.stringify({ username, password }),
+    headers: { 'Content-Type': 'application/json' }
+  })
+  .then(response => response.json())
+  .then(data => {
+    if (data.success) {
+      window.location.href = 'admin.php';
+    } else {
+      alert(data.message);
+    }
+  })
+  .catch(error => console.error(error));
+});
+}
+</script>
+<form method="post" action="adminpage.html">
+  <label for="username">Username:</label>
+  <input type="text" id="username" name="username" required>
+
+  <label for="password">Password:</label>
+  <input type="password" id="password" name="password" required>
+
+  <button type="submit" id="login-btn">Log in</button>
+</form>
+</html>

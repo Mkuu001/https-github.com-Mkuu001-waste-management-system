@@ -1,0 +1,63 @@
+<?php
+// Create connection to MySQL database
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "wmsystem";
+
+$conn = new mysqli($servername, $username, $password, $wmsystem);
+
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+
+// Create table to store login information for users
+$sql = "CREATE TABLE users (
+  id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+  username VARCHAR(50) UNIQUE NOT NULL,
+  password VARCHAR(255) NOT NULL
+)";
+
+if ($conn->query($sql) === TRUE) {
+  echo "Table created successfully";
+} else {
+  echo "Error creating table: " . $conn->error;
+}
+
+// Create registration form
+echo "<form action='register.php' method='post'>";
+echo "<h2>New User Registration</h2>";
+echo "<label for='username'>Username:</label>";
+echo "<input type='text' id='username' name='username'><br>";
+echo "<label for='password'>Password:</label>";
+echo "<input type='password' id='password' name='password'><br>";
+echo "<label for='confirm_password'>Confirm Password:</label>";
+echo "<input type='password' id='confirm_password' name='confirm_password'><br>";
+echo "<input type='submit' value='Register'>";
+echo "</form>";
+
+// Handle form submission
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $username = $_POST["username"];
+  $password = $_POST["password"];
+  $confirm_password = $_POST["confirm_password"];
+
+  // Validate form data
+  if ($password !== $confirm_password) {
+    echo "Error: Passwords do not match";
+  } else {
+    // Insert new user's login information into the table
+    $sql = "INSERT INTO users (username, password) VALUES ('$username', '$password')";
+
+    if ($conn->query($sql) === TRUE) {
+      echo "Registration successful!";
+    } else {
+      echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+  }
+}
+
+// Close database connection
+$conn->close();
+?>
